@@ -1,38 +1,99 @@
-.App {
+body {
+  background-image: url("https://images.pexels.com/photos/957085/milky-way-starry-sky-night-sky-star-957085.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 1500px;
+}
+
+h1 {
+  color: aliceblue;
+  text-align: center;
+  margin-top: 30px;
+  opacity: 0.8;
+}
+
+.shuffle {
+  justify-content: center;
+  margin-top: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+  width: 80px;
+  height: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.App {
+  margin-top: 10px;
+  display: inline-flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  display: flex;
+}
+
+.container {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  padding: 40px;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 1s ease;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+  cursor: pointer;
+}
+
+.front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  color: gray;
+}
+
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+  color: gray;
+  transform: rotateY(180deg);
+}
+
+.meaning-box {
+  border-bottom: 4px dotted rgb(177, 177, 196);
+  width: 70%;
+  opacity: 0.8;
+  margin-left: 220px;
+
   color: white;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.text-container {
+  margin-top: 100px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.top-cards {
+  display: flex;
+  margin-left: 90px;
+  justify-content: center;
+}
+
+.top-card {
+  margin-left: -50px;
+}
+
+.top-card.chosen {
+  margin-top: 50px;
 }
