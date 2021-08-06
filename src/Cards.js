@@ -7,18 +7,16 @@ class Cards extends React.Component {
       chosen: false,
     };
   }
-
-  chosenCrad = () => {
+  chosenCard = () => {
     this.setState({
       chosen: true,
     });
   };
-
   render() {
     return (
       <div
         className={`top-card${this.state.chosen ? " chosen " : ""}`}
-        onClick={this.chosenCrad}
+        onClick={this.chosenCard}
       >
         <img src="./cards/back.jpeg" alt="" width="150px" height="220px"></img>
       </div>

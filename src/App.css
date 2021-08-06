@@ -97,3 +97,19 @@ button {
 .top-card.chosen {
   margin-top: 50px;
 }
+
+.name-card {
+  cursor: pointer;
+}
+
+.modal-pop-up {
+  position: absolute;
+}
+
+.modal-content {
+  background-color: aquamarine;
+  position: absolute;
+  opacity: 0.9;
+  width: 400px;
+  height: 300px;
+}
