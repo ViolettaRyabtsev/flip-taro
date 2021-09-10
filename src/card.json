@@ -5,7 +5,7 @@
     "src": "./cards/tarot-cards-6103702_1280.jpeg"
   },
   {
-    "name": "Judgment",
+    "name": "The Last Judgment",
     "meaning": "reflection, awakening, reckonning",
     "src": "./cards/devil.jpeg"
   },
@@ -35,7 +35,7 @@
     "src": "./cards/devil.jpeg"
   },
   {
-    "name": "The Temperance",
+    "name": "Temperance",
     "meaning": "middle path, finding meaning, patience",
     "src": "./cards/temperance-6016917_1280.jpeg"
   },
@@ -50,12 +50,12 @@
     "src": "./cards/hanged-man-6016939_1280.jpeg"
   },
   {
-    "name": "The Justice",
+    "name": "The Hight Priestess",
     "meaning": "cause and effect, clarity, truth",
     "src": "./cards/justice.jpeg"
   },
   {
-    "name": "The Weel of Fortune",
+    "name": "Wheel of Fortune",
     "meaning": "change, cycles, inevitable",
     "src": "./cards/fortune.jpeg"
   },
@@ -65,7 +65,7 @@
     "src": "./cards/hermit-6016941_1280.jpeg"
   },
   {
-    "name": "The Strength",
+    "name": "The Hierophant",
     "meaning": "addiction, materialism, playfulness",
     "src": "./cards/strength.jpeg"
   },
@@ -105,7 +105,7 @@
     "src": "./cards/magic.jpeg"
   },
   {
-    "name": "The Fool ",
+    "name": "The Fool",
     "meaning": "innocence, new beginnings, free spirit",
     "src": "./cards/the-fool-6016940_1280.jpeg"
   }

@@ -5,6 +5,7 @@ class PopUpExplainCards extends React.Component {
     return (
       <div className="modal-pop-up">
         <div className="modal-content">{this.props.desc}</div>
+        <button className="close-popUp">close</button>
       </div>
     );
   }

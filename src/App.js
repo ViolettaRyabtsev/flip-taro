@@ -17,6 +17,7 @@ class App extends React.Component {
       showPopUp: false,
       chosen: false,
       description: [],
+      text: "",
     };
   }
   getNameCard = () => {
@@ -61,32 +62,16 @@ class App extends React.Component {
 
   handleClick = (index) => {
     this.setState({
-      chosen: !this.state.chosen,
+      description: this.state.information.filter(
+        (item) => item.name === this.state.names[index].name
+      )[0].desc,
+      showPopUp: !this.state.showPopUp,
     });
-
-    for (var i = 0; i < this.state.information.length; i++) {
-      if (this.state.information[i].name === this.state.names[index].name) {
-       
-        this.setState({
-          showPopUp: !this.state.showPopUp,
-          description: this.state.information[i].name,
-        });
-      }
-    }
-
-    
-    // console.log(this.state.description, " more desc");
-    // var arr = this.state.description.slice();
-    // arr.push(this.state.description);
-    // this.setState({
-    //   description: arr,
-    // });
-
-    return;
   };
   render() {
     console.log(this.state.names, "names");
     console.log(this.state.information, " more information");
+    console.log(this.state.description, " desc");
 
     return (
       <div>
@@ -134,12 +119,12 @@ class App extends React.Component {
               <h2 className="name-card" onClick={() => this.handleClick(index)}>
                 {name.name}{" "}
               </h2>
-              {this.state.showPopUp ? (
-                <PopUpExplainCards desc={this.state.description} />
-              ) : null}
               <h3>{name.meaning}</h3>
             </div>
           ))}
+          {this.state.showPopUp ? (
+            <PopUpExplainCards desc={this.state.description} />
+          ) : null}
         </div>
       </div>
     );
