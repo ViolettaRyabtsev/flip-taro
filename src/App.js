@@ -1,44 +1,34 @@
 import "./App.css";
-import Card from "./card";
 import React from "react";
-import cards from "./card.json";
-import PopUpExplainCards from "./PopUp";
-//import uniqueRandom from "unique-random";
-import Cards from "./Cards";
+// import Cards from "./cards";
+
 import axios from "axios";
+import OneCard from "./oneCard";
+import PyramidLove from "./PyramidLove";
+import ThreeCards from "./ThreeCards";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      names: [],
-      url: [],
-      arrOfCards: [],
       information: [],
-      showPopUp: false,
-      chosen: false,
-      description: [],
-      text: "",
+      cards: [],
+      showCards: false,
+      timePassed: false,
     };
   }
-  getNameCard = () => {
-    const random = Math.floor(Math.random() * cards.length);
-    const CardsObject = cards[random];
 
-    cards.splice(random, 1);
-
-    var arr = this.state.arrOfCards.slice();
-    const arrNames = this.state.names.slice();
-    const urlArr = this.state.url.slice();
-
-    arr.push(CardsObject);
-
-    arrNames.push(CardsObject.name);
-    urlArr.push(CardsObject.src);
-
+  flip = (e) => {
+    e.preventDefault();
     this.setState({
-      arrOfCards: arr,
-      names: arr,
-      url: urlArr,
+      flipped: true,
+    });
+  };
+
+  showCards = () => {
+    this.setState({
+      showCards: true,
     });
   };
 
@@ -55,77 +45,59 @@ class App extends React.Component {
     (async () => {
       this.setState({
         information: await getApiRequest(),
-        // showPopUp: !this.state.showPopUp,
       });
     })();
   };
 
-  handleClick = (index) => {
-    this.setState({
-      description: this.state.information.filter(
-        (item) => item.name === this.state.names[index].name
-      )[0].desc,
-      showPopUp: !this.state.showPopUp,
-    });
-  };
   render() {
-    console.log(this.state.names, "names");
-    console.log(this.state.information, " more information");
-    console.log(this.state.description, " desc");
-
     return (
-      <div>
-        <h1> Choose 4 cards and know your future </h1>
-        <div className="top-cards">
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-        </div>
-        <div className="shuffle">
-          <button onClick={this.shuffleCards}>Shuffle</button>
-        </div>
-        <div className="App">
-          <Card
-            onClick={this.getNameCard}
-            name={this.state.names[0]}
-            src={this.state.url[0]}
-          />{" "}
-          <Card
-            onClick={this.getNameCard}
-            name={this.state.names[1]}
-            src={this.state.url[1]}
-          />
-          <Card
-            onClick={this.getNameCard}
-            name={this.state.names[2]}
-            src={this.state.url[2]}
-          />
-          <Card
-            onClick={this.getNameCard}
-            name={this.state.names[3]}
-            src={this.state.url[3]}
-          />
-        </div>
-        <div className="text-container">
-          {this.state.names.map((name, index) => (
-            <div className="meaning-box">
-              <h2 className="name-card" onClick={() => this.handleClick(index)}>
-                {name.name}{" "}
-              </h2>
-              <h3>{name.meaning}</h3>
+      <div className="table">
+        <h1>Choose Tarot Reading type </h1>
+        <Router>
+          <div className="App">
+            <div className="links">
+              <Link className="reading-type" to="/onecard">
+                <h2>"One card"</h2>
+                <p>
+                  to get a quick answer to your question in this
+                  fortune-telling, it is enough to draw one card, in this case
+                  you will receive an extremely unambiguous answer, since there
+                  are no other cards that could confuse you. Fortune-telling
+                  uses a deck of cards with major and minor arcana."
+                </p>
+                <div className="line"></div>
+              </Link>
+              <Link className="reading-type" to="/pyramidLove">
+                <h2>"Pyramid of lover"</h2>
+                <p>
+                  this is fortune-telling in the senior lasso, the layout is
+                  simple on the one hand, but at the same time very deep: it
+                  will help you understand complex and confusing relationships,
+                  find the answer to your question.
+                </p>
+                <div className="line"></div>
+              </Link>
+              <Link className="reading-type" to="/three-cards">
+                {" "}
+                <h2>"Three Cards"</h2>
+                <p>
+                  using this layout, you will receive an answer to the
+                  development of the current situation. The first card will tell
+                  about the past, the second - about the present, the third -
+                  about the possible future.
+                </p>
+                <div className="line"></div>
+              </Link>
             </div>
-          ))}
-          {this.state.showPopUp ? (
-            <PopUpExplainCards desc={this.state.description} />
-          ) : null}
-        </div>
+            <div className="cards-grid">
+              <Routes>
+                <Route path="/onecard" element={<OneCard />}></Route>
+                <Route path="/pyramidLove" element={<PyramidLove />}></Route>
+                <Route path="/three-cards" element={<ThreeCards />}></Route>
+              </Routes>
+            </div>
+          </div>
+        </Router>
       </div>
     );
   }

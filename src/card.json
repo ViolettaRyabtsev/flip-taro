@@ -7,7 +7,7 @@
   {
     "name": "The Last Judgment",
     "meaning": "reflection, awakening, reckonning",
-    "src": "./cards/devil.jpeg"
+    "src": "./cards/judgment.jpg"
   },
   {
     "name": "The Sun",
@@ -32,7 +32,7 @@
   {
     "name": "The Devil",
     "meaning": "addiction, materialism, playfulness",
-    "src": "./cards/devil.jpeg"
+    "src": "./cards/cards.jpeg"
   },
   {
     "name": "Temperance",
